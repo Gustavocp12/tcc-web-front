@@ -1,1 +1,10 @@
-<p>cardapio works!</p>
+<section class="tabs">
+  <div class="tab"
+       *ngFor="let tab of tabs"
+       (click)="activateTab(tab.id)"
+        [class.active]="tab.active"
+        [ngStyle]="{'color': tab.active ? '#303030' : '#5E5E5E'}"
+        [routerLink]="tab.link"
+  >{{tab.name}}</div>
+</section>
+<router-outlet></router-outlet>

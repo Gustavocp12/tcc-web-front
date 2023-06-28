@@ -5,6 +5,7 @@ import { DashboardRoutingModule } from './dashboard-routing.module';
 import { PedidosComponent } from './pedidos/pedidos.component';
 import { CardapioComponent } from './cardapio/cardapio.component';
 import { ConfiguracoesComponent } from './configuracoes/configuracoes.component';
+import {CardapioModule} from "./cardapio/cardapio.module";
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { ConfiguracoesComponent } from './configuracoes/configuracoes.component'
   ],
   imports: [
     CommonModule,
-    DashboardRoutingModule
+    DashboardRoutingModule,
+    CardapioModule
   ]
 })
 export class DashboardModule { }
