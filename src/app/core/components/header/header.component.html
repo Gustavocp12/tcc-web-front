@@ -1,0 +1,19 @@
+<nav>
+  <section class="container">
+    <div class="logo">
+      MAGU
+    </div>
+    <div class="options">
+      <ul>
+        <a *ngFor="let option of options" routerLink="{{option.path}}">
+          <li>
+            <i class="pi pi-{{option.icon}}"></i>
+          </li>
+        </a>
+      </ul>
+    </div>
+    <div class="user">
+      <i class="pi pi-power-off"></i>
+    </div>
+  </section>
+</nav>
