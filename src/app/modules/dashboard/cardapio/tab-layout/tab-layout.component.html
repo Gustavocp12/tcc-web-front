@@ -1,1 +1,55 @@
-<p>tab-layout works!</p>
+<main>
+  <header>
+    <h1>Foto de capa</h1>
+    <p>Esta é a imagem que ficará no topo do cardápio.</p>
+  </header>
+  <section class="container">
+    <form>
+      <div class="photo">
+        <div class="preview">
+          <img ngSrc="https://via.placeholder.com/800x200" height="200" width="800" alt="">
+        </div>
+        <div class="options">
+          <label for="image">Editar foto de capa <i class="pi pi-upload"></i></label>
+          <input type="file" id="image">
+          <button type="button">Remover <i class="pi pi-trash"></i></button>
+        </div>
+      </div>
+
+      <header>
+        <h1>Cores</h1>
+        <p>Tema de fundo</p>
+      </header>
+      <div class="colors">
+        <div>
+          <img ngSrc="./assets/images/example-light.svg" height="462" width="298" alt="">
+          <div>
+            <input type="radio" name="radio">
+            <label>Light</label>
+          </div>
+        </div>
+        <div>
+          <img ngSrc="./assets/images/example-dark.svg" height="462" width="298" alt="">
+          <div>
+            <input type="radio" name="radio">
+            <label>Dark</label>
+          </div>
+        </div>
+      </div>
+
+      <header>
+        <p>Cor da barra de navegação</p>
+      </header>
+
+      <div class="selectColors">
+        <select name="">
+          <option value="" selected>Selecione a cor que desejar!</option>
+        </select>
+      </div>
+
+      <div class="save">
+        <button type="submit">Salvar</button>
+      </div>
+    </form>
+  </section>
+</main>

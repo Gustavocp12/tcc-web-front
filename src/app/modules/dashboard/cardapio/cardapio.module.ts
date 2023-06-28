@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import {CommonModule, NgOptimizedImage} from '@angular/common';
 
 import { CardapioRoutingModule } from './cardapio-routing.module';
 import { TabLayoutComponent } from './tab-layout/tab-layout.component';
@@ -20,7 +20,8 @@ import { TabItensComponent } from './tab-itens/tab-itens.component';
   ],
   imports: [
     CommonModule,
-    CardapioRoutingModule
+    CardapioRoutingModule,
+    NgOptimizedImage
   ]
 })
 export class CardapioModule { }

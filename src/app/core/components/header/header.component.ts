@@ -9,9 +9,9 @@ export class HeaderComponent {
 
   options = [
     { icon: 'th-large', path: '/dashboard' },
-    { icon: 'wrench', path: '/cardapio' },
-    { icon: 'shopping-cart', path: '/pedidos' },
-    { icon: 'cog', path: '/configuracoes' },
+    { icon: 'wrench', path: 'cardapio' },
+    { icon: 'shopping-cart', path: 'pedidos' },
+    { icon: 'cog', path: 'configuracoes' },
   ]
 
 }
