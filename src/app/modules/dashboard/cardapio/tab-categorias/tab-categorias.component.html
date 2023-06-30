@@ -1,1 +1,46 @@
-<p>tab-categorias works!</p>
+<header>
+  <h1>Categorias</h1>
+  <p>As seções estão ordenadas na ordem que ficará no cardápio</p>
+</header>
+
+<div class="containerSearch">
+  <div class="search">
+    <input type="text" name="search" placeholder="Pesquisar">
+    <i class="pi pi-search"></i>
+  </div>
+  <div>
+    <button type="button">Adicionar Categoria</button>
+  </div>
+</div>
+
+<section class="container">
+  <div class="title">
+    <div class="text">
+      <h2>Destaques</h2>
+      <p>editar nome</p>
+    </div>
+    <div class="options">
+      <button type="button"><i class="pi pi-plus"></i> Item</button>
+      <div class="available">
+        <label>Disponível</label>
+        <button type="button" (click)="switchAvailable()">{{this.textAvailable}}</button>
+      </div>
+    </div>
+  </div>
+  <table>
+    <thead>
+      <tr>
+        <th *ngFor="let option of tableOption">{{option.title}}</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>{{this.tableValue}}</td>
+        <div class="empty" *ngIf="empty">
+          <h1>Vazia</h1>
+          <p>Adicione um item clicando no botão "+Item"</p>
+        </div>
+      </tr>
+    </tbody>
+  </table>
+</section>
