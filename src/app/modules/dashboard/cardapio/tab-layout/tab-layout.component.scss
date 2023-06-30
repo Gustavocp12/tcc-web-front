@@ -103,8 +103,14 @@ header{
       color: #fff;
       font-weight: bolder;
       cursor: pointer;
-      border: none;
+      border: 1px solid #0F0F0F;
       font-size: 18px;
+      transition: all 0.3s ease-in-out;
+
+      &:hover{
+        background-color: #fff;
+        color: #0F0F0F;
+      }
     }
 
   }
