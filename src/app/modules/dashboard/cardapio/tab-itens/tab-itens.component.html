@@ -1,1 +1,31 @@
-<p>tab-itens works!</p>
+<section class="container">
+  <div class="search">
+    <input type="text" placeholder="Pesquisar">
+    <i class="pi pi-search"></i>
+    <select>
+      <option disabled selected>Categorias</option>
+    </select>
+  </div>
+  <div class="addItem">
+    <button class="btn btn-primary">Adicionar Item</button>
+  </div>
+</section>
+
+<section>
+  <table>
+    <thead>
+    <tr>
+      <th *ngFor="let option of tableOption">{{option.title}}</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>{{this.tableValue}}</td>
+      <div class="empty" *ngIf="empty">
+        <h1>Vazia</h1>
+        <p>Adicione um item clicando no botão "+Item"</p>
+      </div>
+    </tr>
+    </tbody>
+  </table>
+</section>
