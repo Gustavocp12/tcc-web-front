@@ -1,0 +1,86 @@
+main{
+  padding: 20px;
+
+  header{
+
+    h1{
+      font-weight: bolder;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+  }
+
+  .container{
+
+    .perfil, .password{
+
+      form{
+        display: flex;
+        gap: 20px;
+        flex-direction: column;
+        width: 350px;
+
+        div{
+          display: flex;
+          flex-direction: column;
+
+          &:last-child{
+            display: flex;
+            flex-direction: row;
+            justify-content: space-around;
+
+            button{
+              padding: 10px;
+              font-weight: bolder;
+              color: #fff;
+              background-color: #C4CAFC;
+              border: 1px solid #C4CAFC;
+              border-radius: 10px;
+              width: 100px;
+              cursor: pointer;
+              transition: all 0.3s ease-in-out;
+
+              &:hover{
+                background-color: #fff;
+                color: #C4CAFC;
+              }
+
+              &:last-child{
+                background-color: #0F0F0F;
+                border: 1px solid #0F0F0F;
+
+                &:hover{
+                  background-color: #fff;
+                  color: #0F0F0F;
+                }
+              }
+            }
+          }
+        }
+
+        input[type="text"], input[type="email"], input[type="password"]{
+          padding: 5px;
+          border: 1px solid #929292;
+          border-radius: 5px;
+          font-weight: bolder;
+        }
+
+        label{
+          font-weight: bolder;
+        }
+      }
+    }
+
+    .perfil{
+      margin-bottom: 40px;
+    }
+
+    .password{
+
+      button{
+        width: 200px !important;
+      }
+    }
+
+  }
+}
