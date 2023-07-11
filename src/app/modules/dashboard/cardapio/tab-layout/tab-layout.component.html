@@ -3,14 +3,14 @@
   <p>Esta é a imagem que ficará no topo do cardápio.</p>
 </header>
 <section class="container">
-  <form>
+  <form (ngSubmit)="postCardapio()" enctype="multipart/form-data">
     <div class="photo">
       <div class="preview">
         <img ngSrc="https://via.placeholder.com/800x200" height="200" width="800" alt="">
       </div>
       <div class="options">
         <label for="image">Editar foto de capa <i class="pi pi-upload"></i></label>
-        <input type="file" id="image">
+        <input type="file" id="image" (change)="onFileSelected($event)">
         <button type="button">Remover <i class="pi pi-trash"></i></button>
       </div>
     </div>

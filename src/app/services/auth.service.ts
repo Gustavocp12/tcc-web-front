@@ -33,4 +33,17 @@ export class AuthService {
     const token = localStorage.getItem('token');
     return !!token;
   }
+
+  public httpOptions = {
+    headers: new HttpHeaders({
+      'Content-Type':  'application/json',
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+  };
+
+  public httpOptionsMultipart = {
+    headers: new HttpHeaders({
+      'Authorization': 'Bearer ' + localStorage.getItem('token')
+    })
+  };
 }

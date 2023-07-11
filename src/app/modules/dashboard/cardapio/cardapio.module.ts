@@ -6,6 +6,7 @@ import { TabLayoutComponent } from './tab-layout/tab-layout.component';
 import { TabCategoriasComponent } from './tab-categorias/tab-categorias.component';
 import { TabItensComponent } from './tab-itens/tab-itens.component';
 import { AddItensComponent } from './tab-itens/add-itens/add-itens.component';
+import {FormsModule} from "@angular/forms";
 
 
 @NgModule({
@@ -20,10 +21,11 @@ import { AddItensComponent } from './tab-itens/add-itens/add-itens.component';
     TabCategoriasComponent,
     TabItensComponent
   ],
-  imports: [
-    CommonModule,
-    CardapioRoutingModule,
-    NgOptimizedImage
-  ]
+    imports: [
+        CommonModule,
+        CardapioRoutingModule,
+        NgOptimizedImage,
+        FormsModule
+    ]
 })
 export class CardapioModule { }
