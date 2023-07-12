@@ -3,3 +3,8 @@ export interface Cardapio {
   corTema: string;
   corNav: string;
 }
+
+export interface optionsSelect{
+  value: string;
+  viewValue: string;
+}

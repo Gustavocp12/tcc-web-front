@@ -8,8 +8,10 @@ import {Router} from "@angular/router";
 export class AuthService {
   constructor(private http: HttpClient, private router: Router) { }
 
+  url: string = 'http://localhost:3000/login';
+
   login(user: string, password: string) {
-    this.http.post('http://localhost:3000/login', { usuario: user, senha: password }).subscribe(
+    this.http.post(this.url , { usuario: user, senha: password }).subscribe(
       (response: any) => {
         if(response.user) {
           localStorage.setItem('token', response.token);

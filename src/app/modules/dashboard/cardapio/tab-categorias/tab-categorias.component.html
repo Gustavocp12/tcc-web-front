@@ -9,14 +9,14 @@
     <i class="pi pi-search"></i>
   </div>
   <div>
-    <button type="button">Adicionar Categoria</button>
+    <button type="button" (click)="addCategory()">Adicionar Categoria</button>
   </div>
 </div>
 
-<section class="container">
+<section class="container" *ngFor="let categoria of das">
   <div class="title">
     <div class="text">
-      <h2>Destaques</h2>
+      <h2>{{this.categorias.nome}}</h2>
       <p>editar nome</p>
     </div>
     <div class="options">

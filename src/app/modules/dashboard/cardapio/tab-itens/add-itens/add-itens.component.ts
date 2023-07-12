@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AddItensComponent {
 
+  visibleTabItens = false;
+
+  returnTabItens(){
+    this.visibleTabItens = true;
+  }
+
 }

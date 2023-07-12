@@ -9,6 +9,7 @@ export class TabItensComponent implements OnInit {
 
   tableValue = '';
   empty = false;
+  visibleAddItem = false;
 
   tableOption = [
     { title: 'Foto' },
@@ -18,6 +19,10 @@ export class TabItensComponent implements OnInit {
     { title: 'Disponível' },
     { title: 'Estoque' }
   ];
+
+  addItem(){
+    this.visibleAddItem = true;
+  }
 
   emptyTable(){
     this.empty = this.tableValue == '';

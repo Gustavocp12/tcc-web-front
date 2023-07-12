@@ -23,14 +23,14 @@
       <div>
         <img ngSrc="./assets/images/example-light.svg" height="462" width="298" alt="">
         <div>
-          <input type="radio" name="radio">
+          <input type="radio" name="radio" value="Branco" [(ngModel)]="this.Cardapio.corTema">
           <label>Light</label>
         </div>
       </div>
       <div>
         <img ngSrc="./assets/images/example-dark.svg" height="462" width="298" alt="">
         <div>
-          <input type="radio" name="radio">
+          <input type="radio" name="radio" value="Escuro" [(ngModel)]="this.Cardapio.corTema">
           <label>Dark</label>
         </div>
       </div>
@@ -41,8 +41,9 @@
     </header>
 
     <div class="selectColors">
-      <select name="">
-        <option disabled selected>Selecione a cor que desejar!</option>
+      <select [(ngModel)]="this.Cardapio.corNav" [ngModelOptions]="{ standalone: true }">
+        <option [value]="undefined" selected disabled>Selecione a cor que desejar!</option>
+        <option *ngFor="let options of OptionsSelect" value="{{options.value}}">{{options.viewValue}}</option>
       </select>
     </div>
 

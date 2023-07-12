@@ -1,23 +1,24 @@
-<main class="container">
-  <div class="back">
+<main class="container" *ngIf="!visibleTabItens">
+  <div class="back" (click)="returnTabItens()">
     <i class="pi pi-arrow-left"></i>
   </div>
-  <section class="infos">
-    <div class="img">
-      <img ngSrc="https://via.placeholder.com/350x300" height="300" width="350" alt="">
-    </div>
-    <div class="info">
-      <h1>Foto do item</h1>
-      <p>A foto deve estar nos formatos JPG, PNG ou WEBP, com tamanho máximo de 10MB.
-        Além disso, o tamanho máximo em pixels para largura é de 350 e para altura é de 300.</p>
-      <div class="options">
-        <button>Escolher <i class="pi pi-upload"></i></button>
-        <button>Remover <i class="pi pi-trash"></i></button>
-      </div>
-    </div>
-  </section>
   <section class="forms">
     <form>
+      <section class="infos">
+        <div class="img">
+          <img ngSrc="https://via.placeholder.com/350x300" height="300" width="350" alt="">
+        </div>
+        <div class="info">
+          <h1>Foto do item</h1>
+          <p>A foto deve estar nos formatos JPG, PNG ou WEBP, com tamanho máximo de 10MB.
+            Além disso, o tamanho máximo em pixels para largura é de 350 e para altura é de 300.</p>
+          <div class="options">
+            <label for="image">Escolher <i class="pi pi-upload"></i></label>
+            <input type="file" id="image">
+            <button>Remover <i class="pi pi-trash"></i></button>
+          </div>
+        </div>
+      </section>
       <div class="name">
         <label>Nome</label>
         <input type="text">
@@ -57,3 +58,5 @@
     </form>
   </section>
 </main>
+
+<app-tab-itens *ngIf="visibleTabItens"></app-tab-itens>

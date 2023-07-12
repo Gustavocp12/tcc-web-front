@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import { Categorias } from 'src/app/core/interfaces/categorias';
+import {CategoriasService} from "../../../../services/categorias.service";
 
 @Component({
   selector: 'app-tab-categorias',
@@ -7,10 +9,14 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TabCategoriasComponent implements OnInit {
 
+  constructor(private categoriasService: CategoriasService) {
+  }
+
   available = true;
   textAvailable = 'Sim';
   empty = false;
   tableValue = '';
+  categorias = {} as Categorias;
 
   tableOption = [
     { title: 'Foto' },
@@ -20,6 +26,15 @@ export class TabCategoriasComponent implements OnInit {
     { title: 'Disponível' },
     { title: 'Estoque' }
   ];
+
+  das = [
+    { id: 1 },
+  ];
+
+  addCategory(){
+    const nome: string = 'Nome exemplo';
+    this.categoriasService.postCategoria(nome);
+  }
 
   switchAvailable(){
     this.available = !this.available;

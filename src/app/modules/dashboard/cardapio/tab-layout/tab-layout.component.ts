@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import {CardapioService} from "../../../../services/cardapio.service";
-import { Cardapio } from "../../../../core/interfaces/cardapio";
+import {Cardapio, optionsSelect} from "../../../../core/interfaces/cardapio";
 
 @Component({
   selector: 'app-tab-layout',
@@ -10,13 +10,16 @@ import { Cardapio } from "../../../../core/interfaces/cardapio";
 export class TabLayoutComponent {
 
   Cardapio = {} as Cardapio;
+  OptionsSelect: optionsSelect[] = [
+    {value: '#083EC4', viewValue: 'Azul'},
+    {value: '#27C408', viewValue: 'Verde'},
+    {value: '#C40808', viewValue: 'Vermelho'}
+  ];
 
   constructor(private cardapioService: CardapioService) {}
 
   onFileSelected(event: any){
     this.Cardapio.banner = event.target.files[0];
-    this.Cardapio.corTema = "000000";
-    this.Cardapio.corNav = "000000";
   }
 
   postCardapio(){
