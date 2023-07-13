@@ -1,4 +1,6 @@
 import {Component, OnInit} from '@angular/core';
+import {Itens} from "../../../../core/interfaces/itens";
+import {ItensService} from "../../../../services/itens.service";
 
 @Component({
   selector: 'app-tab-itens',
@@ -7,16 +9,17 @@ import {Component, OnInit} from '@angular/core';
 })
 export class TabItensComponent implements OnInit {
 
-  tableValue = '';
-  empty = false;
+  constructor(private itensService: ItensService) { }
+
   visibleAddItem = false;
+  itens: Itens[] = [];
 
   tableOption = [
     { title: 'Foto' },
     { title: 'Nome' },
     { title: 'Descrição' },
     { title: 'Preço' },
-    { title: 'Disponível' },
+    { title: 'Preço Promocional' },
     { title: 'Estoque' }
   ];
 
@@ -24,13 +27,19 @@ export class TabItensComponent implements OnInit {
     this.visibleAddItem = true;
   }
 
-  emptyTable(){
-    this.empty = this.tableValue == '';
+  getItens(){
+    this.itensService.getItens().subscribe(
+      (result: any) => {
+        this.itens = Array.isArray(result) ? result : [result];
+        console.log("Itens carregados com sucesso!");
+      },
+      (error: any) => {
+        console.log("Erro ao carregar itens!", error);
+      });
   }
 
   ngOnInit() {
-    this.emptyTable();
-    console.log(this.empty);
+    this.getItens();
   }
 
 }

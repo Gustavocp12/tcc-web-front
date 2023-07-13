@@ -9,14 +9,13 @@ import {CategoriasService} from "../../../../services/categorias.service";
 })
 export class TabCategoriasComponent implements OnInit {
 
-  constructor(private categoriasService: CategoriasService) {
-  }
+  constructor(private categoriasService: CategoriasService) { }
 
   available = true;
   textAvailable = 'Sim';
   empty = false;
   tableValue = '';
-  categorias = {} as Categorias;
+  categorias: Categorias[] = [];
 
   tableOption = [
     { title: 'Foto' },
@@ -27,13 +26,10 @@ export class TabCategoriasComponent implements OnInit {
     { title: 'Estoque' }
   ];
 
-  das = [
-    { id: 1 },
-  ];
-
   addCategory(){
     const nome: string = 'Nome exemplo';
     this.categoriasService.postCategoria(nome);
+    this.refreshPage();
   }
 
   switchAvailable(){
@@ -45,9 +41,25 @@ export class TabCategoriasComponent implements OnInit {
     this.empty = this.tableValue == '';
   }
 
+  getCategorias(){
+    this.categoriasService.getCategorias().subscribe(
+      (result: any) => {
+        this.categorias = result;
+        console.log("Categorias carregadas com sucesso!");
+      },
+      (error: any) => {
+        console.log("Erro ao carregar categorias!", error);
+      });
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
+
   ngOnInit() {
     this.emptyTable();
     console.log(this.empty);
+    this.getCategorias();
   }
 
 }
