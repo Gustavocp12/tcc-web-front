@@ -16,6 +16,7 @@ export class TabCategoriasComponent implements OnInit {
   empty = false;
   tableValue = '';
   categorias: Categorias[] = [];
+  modal = false;
 
   tableOption = [
     { title: 'Foto' },
@@ -25,6 +26,10 @@ export class TabCategoriasComponent implements OnInit {
     { title: 'Disponível' },
     { title: 'Estoque' }
   ];
+
+  modalItens(){
+    this.modal = !this.modal;
+  }
 
   addCategory(){
     const nome: string = 'Nome exemplo';

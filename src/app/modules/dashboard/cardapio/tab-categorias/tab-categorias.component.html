@@ -20,7 +20,7 @@
       <p>editar nome</p>
     </div>
     <div class="options">
-      <button type="button"><i class="pi pi-plus"></i> Item</button>
+      <button type="button" (click)="modalItens()"><i class="pi pi-plus"></i> Item</button>
       <div class="available">
         <label>Disponível</label>
         <button type="button" (click)="switchAvailable()">{{this.textAvailable}}</button>
@@ -44,3 +44,5 @@
     </tbody>
   </table>
 </section>
+
+<app-modal *ngIf="modal"></app-modal>

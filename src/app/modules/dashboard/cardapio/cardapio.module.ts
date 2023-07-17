@@ -7,6 +7,9 @@ import { TabCategoriasComponent } from './tab-categorias/tab-categorias.componen
 import { TabItensComponent } from './tab-itens/tab-itens.component';
 import { AddItensComponent } from './tab-itens/add-itens/add-itens.component';
 import {FormsModule} from "@angular/forms";
+import { ModalComponent } from './components/modal/modal.component';
+import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
+import { DataModalComponent } from './components/data-modal/data-modal.component';
 
 
 @NgModule({
@@ -14,7 +17,10 @@ import {FormsModule} from "@angular/forms";
     TabLayoutComponent,
     TabCategoriasComponent,
     TabItensComponent,
-    AddItensComponent
+    AddItensComponent,
+    ModalComponent,
+    ConfirmModalComponent,
+    DataModalComponent,
   ],
   exports: [
     TabLayoutComponent,

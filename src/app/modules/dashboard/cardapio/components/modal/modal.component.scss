@@ -1,0 +1,128 @@
+main{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: calc(100% - 150px);
+  height: calc(100% - 54px);
+
+  .modal{
+    height: 500px;
+    width: 700px;
+    background-color: whitesmoke;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+
+    .container{
+      padding: 10px;
+
+      .search{
+        position: relative;
+        display: flex;
+        align-items: center;
+
+        input[type="text"]{
+          padding: 10px 30px 10px 10px;
+          border: 1px solid #929292;
+          border-radius: 5px;
+          width: 300px;
+          font-weight: bolder;
+        }
+
+        select{
+          width: 200px;
+          padding: 10px;
+          border: 1px solid #929292;
+          border-radius: 5px;
+          margin-left: 10px;
+          font-weight: bolder;
+          cursor: pointer;
+        }
+
+        i{
+          font-size: 1.2rem;
+          color: #929292;
+          position: absolute;
+          right: 390px;
+        }
+      }
+    }
+
+    table{
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 20px;
+
+      thead{
+        font-weight: bolder;
+        text-align: left;
+
+        tr{
+          height: 30px;
+          background-color: #0F0F0F;
+          color: #fff;
+        }
+
+        th{
+          padding: 0 10px;
+        }
+
+        th:nth-child(2){
+          width: 10%;
+        }
+
+        th:nth-child(3){
+          width: 60%;
+        }
+      }
+
+      tbody{
+        height: 60px;
+
+        tr{
+          border-bottom: 1px solid #929292;
+          height: 50px;
+          font-weight: bolder;
+          color: #5E5E5E;
+          text-align: left;
+
+          img{
+            margin-top: 4px;
+          }
+
+          .empty{
+            position: absolute;
+            left: 45%;
+            text-align: center;
+            font-weight: bolder;
+
+            h1{
+              font-size: 1.5rem;
+            }
+
+            p{
+              color: #929292;
+            }
+          }
+        }
+
+        td{
+          padding: 0 10px;
+          text-align: center;
+
+          &:nth-child(3){
+            text-align: left;
+          }
+
+          .iconAdd{
+            color: #30c917;
+            cursor: pointer;
+          }
+        }
+      }
+    }
+
+  }
+}

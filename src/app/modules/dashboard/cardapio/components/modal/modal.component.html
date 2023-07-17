@@ -1,0 +1,39 @@
+<main>
+    <section class="modal">
+      <section class="container">
+        <div class="search">
+          <input type="text" placeholder="Pesquisar">
+          <i class="pi pi-search"></i>
+          <select>
+            <option disabled selected>Categorias</option>
+          </select>
+        </div>
+      </section>
+
+      <section>
+        <table>
+          <thead>
+          <tr>
+            <th *ngFor="let option of tableOption">{{option.title}}</th>
+          </tr>
+          </thead>
+          <tbody>
+          <tr *ngFor="let item of itens">
+            <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+            <td>{{item.nome}}</td>
+            <td>{{item.descricao}}</td>
+            <td>{{item.precoPadrao}}</td>
+            <td>{{item.precoPromocional}}</td>
+            <td>{{item.estoque}}</td>
+            <td><i class="pi pi-plus iconAdd"></i></td>
+          </tr>
+          <!--      tem que arrumar esse aviso de tabela vazia-->
+          <!--      <div class="empty">-->
+          <!--        <h1>Vazia</h1>-->
+          <!--        <p>Adicione um item clicando no botão "+Item"</p>-->
+          <!--      </div>-->
+          </tbody>
+        </table>
+      </section>
+    </section>
+</main>

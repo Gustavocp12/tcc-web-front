@@ -1,17 +1,16 @@
 import {Component, OnInit} from '@angular/core';
-import {Itens} from "../../../../core/interfaces/itens";
-import {ItensService} from "../../../../services/itens.service";
+import {Itens} from "../../../../../core/interfaces/itens";
+import {ItensService} from "../../../../../services/itens.service";
 
 @Component({
-  selector: 'app-tab-itens',
-  templateUrl: './tab-itens.component.html',
-  styleUrls: ['./tab-itens.component.scss']
+  selector: 'app-modal',
+  templateUrl: './modal.component.html',
+  styleUrls: ['./modal.component.scss']
 })
-export class TabItensComponent implements OnInit {
+export class ModalComponent implements OnInit{
 
-  constructor(private itensService: ItensService) { }
+  constructor(private itensService: ItensService) {}
 
-  visibleAddItem = false;
   itens: Itens[] = [];
 
   tableOption = [
@@ -20,12 +19,9 @@ export class TabItensComponent implements OnInit {
     { title: 'Descrição' },
     { title: 'Preço' },
     { title: 'Preço Promocional' },
-    { title: 'Estoque' }
+    { title: 'Estoque' },
+    { title: 'Ação' }
   ];
-
-  addItem(){
-    this.visibleAddItem = true;
-  }
 
   getItens(){
     this.itensService.getItens().subscribe(
@@ -42,5 +38,4 @@ export class TabItensComponent implements OnInit {
   ngOnInit() {
     this.getItens();
   }
-
 }
