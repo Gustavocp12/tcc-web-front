@@ -9,7 +9,7 @@
     <i class="pi pi-search"></i>
   </div>
   <div>
-    <button type="button" (click)="addCategory()">Adicionar Categoria</button>
+    <button type="button" (click)="confirmModal()">Adicionar Categoria</button>
   </div>
 </div>
 
@@ -17,7 +17,7 @@
   <div class="title">
     <div class="text">
       <h2>{{this.categoria.nome}}</h2>
-      <p>editar nome</p>
+      <p (click)="dataModal()">editar nome</p>
     </div>
     <div class="options">
       <button type="button" (click)="modalItens()"><i class="pi pi-plus"></i> Item</button>
@@ -45,4 +45,6 @@
   </table>
 </section>
 
+<app-confirm-modal *ngIf="cModal"></app-confirm-modal>
+<app-data-modal *ngIf="dModal"></app-data-modal>
 <app-modal *ngIf="modal"></app-modal>

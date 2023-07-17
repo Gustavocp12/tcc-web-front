@@ -17,6 +17,8 @@ export class TabCategoriasComponent implements OnInit {
   tableValue = '';
   categorias: Categorias[] = [];
   modal = false;
+  dModal = false;
+  cModal = false;
 
   tableOption = [
     { title: 'Foto' },
@@ -31,10 +33,12 @@ export class TabCategoriasComponent implements OnInit {
     this.modal = !this.modal;
   }
 
-  addCategory(){
-    const nome: string = 'Nome exemplo';
-    this.categoriasService.postCategoria(nome);
-    this.refreshPage();
+  dataModal(){
+    this.dModal = !this.dModal;
+  }
+
+  confirmModal(){
+    this.cModal = !this.cModal;
   }
 
   switchAvailable(){
@@ -55,10 +59,6 @@ export class TabCategoriasComponent implements OnInit {
       (error: any) => {
         console.log("Erro ao carregar categorias!", error);
       });
-  }
-
-  refreshPage(){
-    window.location.reload();
   }
 
   ngOnInit() {
