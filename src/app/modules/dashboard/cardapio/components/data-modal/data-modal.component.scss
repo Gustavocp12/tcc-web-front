@@ -17,6 +17,20 @@ main {
 
 
     .container{
+      position: relative;
+
+      .close{
+        position: absolute;
+        top: 0;
+        right: -30px;
+        cursor: pointer;
+
+        i{
+          font-size: 1.3rem;
+          color: #e74444;
+        }
+      }
+
       h1{
         text-align: center;
         margin-top: 10px;

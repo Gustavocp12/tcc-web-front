@@ -13,18 +13,14 @@
   </div>
 </div>
 
-<section class="container" *ngFor="let categoria of categorias">
+<section class="container" *ngFor="let categoria of categorias; let i = index;">
   <div class="title">
     <div class="text">
       <h2>{{this.categoria.nome}}</h2>
-      <p (click)="dataModal()">editar nome</p>
+      <p (click)="dataModal(categoria.ID)">editar nome</p>
     </div>
     <div class="options">
-      <button type="button" (click)="modalItens()"><i class="pi pi-plus"></i> Item</button>
-      <div class="available">
-        <label>Disponível</label>
-        <button type="button" (click)="switchAvailable()">{{this.textAvailable}}</button>
-      </div>
+      <button type="button" (click)="modalItens(categoria.ID)"><i class="pi pi-plus"></i> Item</button>
     </div>
   </div>
   <table>
@@ -46,5 +42,5 @@
 </section>
 
 <app-confirm-modal *ngIf="cModal"></app-confirm-modal>
-<app-data-modal *ngIf="dModal"></app-data-modal>
-<app-modal *ngIf="modal"></app-modal>
+<app-data-modal *ngIf="dModal" [idCategoria]="idCategoria"></app-data-modal>
+<app-modal *ngIf="modal" [idCategoria]="idCategoria"></app-modal>

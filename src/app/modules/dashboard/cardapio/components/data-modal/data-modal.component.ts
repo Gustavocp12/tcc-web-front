@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import {Component, Input} from '@angular/core';
 
 @Component({
   selector: 'app-data-modal',
@@ -6,5 +6,15 @@ import { Component } from '@angular/core';
   styleUrls: ['./data-modal.component.scss']
 })
 export class DataModalComponent {
+
+  @Input() idCategoria = 0;
+
+  closeModal(){
+    this.refreshPage();
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
 
 }

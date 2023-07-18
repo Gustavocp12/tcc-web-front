@@ -11,14 +11,13 @@ export class TabCategoriasComponent implements OnInit {
 
   constructor(private categoriasService: CategoriasService) { }
 
-  available = true;
-  textAvailable = 'Sim';
   empty = false;
   tableValue = '';
   categorias: Categorias[] = [];
   modal = false;
   dModal = false;
   cModal = false;
+  idCategoria = 0;
 
   tableOption = [
     { title: 'Foto' },
@@ -29,21 +28,18 @@ export class TabCategoriasComponent implements OnInit {
     { title: 'Estoque' }
   ];
 
-  modalItens(){
+  modalItens(ID: number){
+    this.idCategoria = ID;
     this.modal = !this.modal;
   }
 
-  dataModal(){
+  dataModal(ID: number){
+    this.idCategoria = ID;
     this.dModal = !this.dModal;
   }
 
   confirmModal(){
     this.cModal = !this.cModal;
-  }
-
-  switchAvailable(){
-    this.available = !this.available;
-    this.textAvailable = this.available ? 'Sim' : 'Não';
   }
 
   emptyTable(){

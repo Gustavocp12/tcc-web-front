@@ -8,6 +8,9 @@
             <option disabled selected>Categorias</option>
           </select>
         </div>
+        <div class="close">
+          <i class="pi pi-times" (click)="closeModal()"></i>
+        </div>
       </section>
 
       <section>
@@ -25,7 +28,7 @@
             <td>{{item.precoPadrao}}</td>
             <td>{{item.precoPromocional}}</td>
             <td>{{item.estoque}}</td>
-            <td><i class="pi pi-plus iconAdd"></i></td>
+            <td><i class="pi pi-plus iconAdd" (click)="addItem(item.ID)"></i></td>
           </tr>
           <!--      tem que arrumar esse aviso de tabela vazia-->
           <!--      <div class="empty">-->

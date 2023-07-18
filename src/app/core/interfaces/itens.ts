@@ -1,4 +1,5 @@
 export interface Itens {
+  ID: number;
   nome: string;
   foto: File;
   precoPadrao: number;

@@ -1,6 +1,7 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, Input, OnInit} from '@angular/core';
 import {Itens} from "../../../../../core/interfaces/itens";
 import {ItensService} from "../../../../../services/itens.service";
+import {ItemCategoriaService} from "../../../../../services/item-categoria.service";
 
 @Component({
   selector: 'app-modal',
@@ -9,8 +10,9 @@ import {ItensService} from "../../../../../services/itens.service";
 })
 export class ModalComponent implements OnInit{
 
-  constructor(private itensService: ItensService) {}
+  constructor(private itensService: ItensService, private itemCategoria: ItemCategoriaService) {}
 
+  @Input() idCategoria?: number = 0;
   itens: Itens[] = [];
 
   tableOption = [
@@ -33,6 +35,19 @@ export class ModalComponent implements OnInit{
       (error: any) => {
         console.log("Erro ao carregar itens!", error);
       });
+  }
+
+  addItem(id: number){
+    this.itemCategoria.postItemCategoria(this.idCategoria!, id);
+    this.refreshPage();
+  }
+
+  closeModal(){
+    this.refreshPage();
+  }
+
+  refreshPage(){
+    window.location.reload();
   }
 
   ngOnInit() {
