@@ -32,5 +32,9 @@ export class CategoriasService {
     return this.http.delete(this.url + '/' + id, this.authService.httpOptions);
   }
 
+  public putCategoriaNome(id: number, nome: string){
+    return this.http.put(this.url + '/name', {id: id, nome: nome}, this.authService.httpOptions);
+  }
+
 
 }

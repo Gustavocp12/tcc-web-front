@@ -49,7 +49,7 @@ export class ItensService {
   }
 
   public putItemCategoriaParaNulo(id: number){
-    return this.http.put(this.url + '/null/', {id: id}, this.authService.httpOptions);
+    return this.http.put(this.url + '/null', {id: id}, this.authService.httpOptions);
   }
 
 }

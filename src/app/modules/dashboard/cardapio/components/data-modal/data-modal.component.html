@@ -5,10 +5,10 @@
         <i class="pi pi-times" (click)="closeModal()"></i>
       </div>
       <h1>Editar nome da categoria</h1>
-      <form>
+      <form (ngSubmit)="putCategoryName()">
         <div>
           <label for="name">Novo nome</label>
-          <input type="text" id="name">
+          <input type="text" id="name" name="name" [(ngModel)]="this.NomeCategoria.nome">
         </div>
         <div>
           <button type="submit">Salvar</button>
