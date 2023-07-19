@@ -30,13 +30,26 @@
       </tr>
     </thead>
     <tbody>
-      <tr>
-        <td>{{this.tableValue}}</td>
-        <div class="empty" *ngIf="empty">
-          <h1>Vazia</h1>
-          <p>Adicione um item clicando no botão "+Item"</p>
-        </div>
-      </tr>
+    <tr>
+      <ng-container *ngIf="itensCategoria[i]?.length else emptyTemplate">
+        <ng-container *ngFor="let item of itensCategoria[i]">
+          <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+          <td>{{item.nome}}</td>
+          <td>{{item.descricao}}</td>
+          <td>{{item.precoPadrao}}</td>
+          <td>{{item.precoPromocional}}</td>
+          <td>{{item.estoque}}</td>
+        </ng-container>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <td colspan="6">
+          <div class="empty">
+            <h1>Vazia</h1>
+            <p>Adicione um item clicando no botão "+Item"</p>
+          </div>
+        </td>
+      </ng-template>
+    </tr>
     </tbody>
   </table>
 </section>

@@ -24,6 +24,20 @@ export class ItensService {
     return this.http.get(this.url, this.authService.httpOptions);
   }
 
+  putItensCategoria(id: number, idCategoria: number){
+    this.http.put(this.url, {idCategoria: idCategoria, id: id}, this.authService.httpOptions).subscribe(
+      (result: any) => {
+        console.log("Item atualizado com sucesso!");
+      },
+      (error: any) => {
+        console.log("Erro ao atualizar item!", error);
+      });
+  }
+
+  public getItensCategoria(idCategoria: number){
+    return this.http.get(this.url + '/categoria/' + idCategoria, this.authService.httpOptions);
+  }
+
   getItemById(id: number){
     this.http.get(this.url + '/' + id, this.authService.httpOptions).subscribe(
       (result: any) => {

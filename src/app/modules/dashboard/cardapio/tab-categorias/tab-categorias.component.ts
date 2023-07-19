@@ -1,6 +1,8 @@
 import {Component, OnInit} from '@angular/core';
 import { Categorias } from 'src/app/core/interfaces/categorias';
 import {CategoriasService} from "../../../../services/categorias.service";
+import {Itens} from "../../../../core/interfaces/itens";
+import {ItensService} from "../../../../services/itens.service";
 
 @Component({
   selector: 'app-tab-categorias',
@@ -9,7 +11,7 @@ import {CategoriasService} from "../../../../services/categorias.service";
 })
 export class TabCategoriasComponent implements OnInit {
 
-  constructor(private categoriasService: CategoriasService) { }
+  constructor(private categoriasService: CategoriasService, private itensService: ItensService) { }
 
   empty = false;
   tableValue = '';
@@ -18,6 +20,8 @@ export class TabCategoriasComponent implements OnInit {
   dModal = false;
   cModal = false;
   idCategoria = 0;
+  itens: Itens[] = [];
+  id = 0;
 
   tableOption = [
     { title: 'Foto' },
@@ -46,10 +50,26 @@ export class TabCategoriasComponent implements OnInit {
     this.empty = this.tableValue == '';
   }
 
+  itensCategoria: any[] = [];
+
+  getItensCategoria(idCategoria: number, index: number){
+    this.itensService.getItensCategoria(idCategoria).subscribe(
+      (result: any) => {
+        this.itensCategoria[index] = Array.isArray(result) ? result : [result];
+        console.log("Itens carregados com sucesso!");
+      },
+      (error: any) => {
+        console.log("Erro ao carregar itens!", error);
+      });
+  }
+
   getCategorias(){
     this.categoriasService.getCategorias().subscribe(
       (result: any) => {
         this.categorias = result;
+        for(let i=0; i<this.categorias.length; i++) {
+          this.getItensCategoria(this.categorias[i].ID, i);
+        }
         console.log("Categorias carregadas com sucesso!");
       },
       (error: any) => {

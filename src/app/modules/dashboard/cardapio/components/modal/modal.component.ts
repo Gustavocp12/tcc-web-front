@@ -12,7 +12,7 @@ export class ModalComponent implements OnInit{
 
   constructor(private itensService: ItensService, private itemCategoria: ItemCategoriaService) {}
 
-  @Input() idCategoria?: number = 0;
+  @Input() idCategoria: number = 0;
   itens: Itens[] = [];
 
   tableOption = [
@@ -38,7 +38,8 @@ export class ModalComponent implements OnInit{
   }
 
   addItem(id: number){
-    this.itemCategoria.postItemCategoria(this.idCategoria!, id);
+    // this.itemCategoria.postItemCategoria(this.idCategoria, id);
+    this.itensService.putItensCategoria(id, this.idCategoria);
     this.refreshPage();
   }
 
