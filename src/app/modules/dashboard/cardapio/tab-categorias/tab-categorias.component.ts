@@ -19,6 +19,7 @@ export class TabCategoriasComponent implements OnInit {
   modal = false;
   dModal = false;
   cModal = false;
+  cdModal = false;
   idCategoria = 0;
   itens: Itens[] = [];
   id = 0;
@@ -29,7 +30,8 @@ export class TabCategoriasComponent implements OnInit {
     { title: 'Descrição' },
     { title: 'Preço' },
     { title: 'Disponível' },
-    { title: 'Estoque' }
+    { title: 'Estoque' },
+    { title: 'Ações' }
   ];
 
   modalItens(ID: number){
@@ -44,6 +46,11 @@ export class TabCategoriasComponent implements OnInit {
 
   confirmModal(){
     this.cModal = !this.cModal;
+  }
+
+  confirmDelete(ID: number){
+    this.idCategoria = ID;
+    this.cdModal = !this.cdModal;
   }
 
   emptyTable(){

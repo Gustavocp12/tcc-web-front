@@ -21,39 +21,44 @@
     </div>
     <div class="options">
       <button type="button" (click)="modalItens(categoria.ID)"><i class="pi pi-plus"></i> Item</button>
+      <div class="trash">
+        <button type="button" (click)="confirmDelete(categoria.ID)"><i class="pi pi-trash"></i></button>
+      </div>
     </div>
   </div>
   <table>
     <thead>
-      <tr>
-        <th *ngFor="let option of tableOption">{{option.title}}</th>
-      </tr>
+    <tr>
+      <th *ngFor="let option of tableOption">{{option.title}}</th>
+    </tr>
     </thead>
     <tbody>
-    <tr>
-      <ng-container *ngIf="itensCategoria[i]?.length else emptyTemplate">
-        <ng-container *ngFor="let item of itensCategoria[i]">
-          <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
-          <td>{{item.nome}}</td>
-          <td>{{item.descricao}}</td>
-          <td>{{item.precoPadrao}}</td>
-          <td>{{item.precoPromocional}}</td>
-          <td>{{item.estoque}}</td>
-        </ng-container>
-      </ng-container>
-      <ng-template #emptyTemplate>
+    <ng-container *ngIf="itensCategoria[i]?.length; else emptyTemplate">
+      <tr *ngFor="let item of itensCategoria[i]">
+        <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+        <td>{{item.nome}}</td>
+        <td>{{item.descricao}}</td>
+        <td>{{item.precoPadrao}}</td>
+        <td>{{item.precoPromocional}}</td>
+        <td>{{item.estoque}}</td>
+        <td><i class="pi pi-times"></i></td>
+      </tr>
+    </ng-container>
+    <ng-template #emptyTemplate>
+      <tr>
         <td colspan="6">
           <div class="empty">
             <h1>Vazia</h1>
             <p>Adicione um item clicando no botão "+Item"</p>
           </div>
         </td>
-      </ng-template>
-    </tr>
+      </tr>
+    </ng-template>
     </tbody>
   </table>
 </section>
 
+<app-confirm-delete *ngIf="cdModal" [categoriaId]="idCategoria"></app-confirm-delete>
 <app-confirm-modal *ngIf="cModal"></app-confirm-modal>
 <app-data-modal *ngIf="dModal" [idCategoria]="idCategoria"></app-data-modal>
 <app-modal *ngIf="modal" [idCategoria]="idCategoria"></app-modal>

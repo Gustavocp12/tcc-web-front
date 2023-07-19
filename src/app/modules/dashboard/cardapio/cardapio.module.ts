@@ -10,6 +10,7 @@ import {FormsModule} from "@angular/forms";
 import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { DataModalComponent } from './components/data-modal/data-modal.component';
+import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DataModalComponent } from './components/data-modal/data-modal.component
     ModalComponent,
     ConfirmModalComponent,
     DataModalComponent,
+    ConfirmDeleteComponent,
   ],
   exports: [
     TabLayoutComponent,

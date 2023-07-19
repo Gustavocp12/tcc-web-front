@@ -72,6 +72,11 @@ table{
 
     th{
       padding: 0 10px;
+      text-align: center;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3){
+        text-align: left;
+      }
     }
 
     th:nth-child(2){
@@ -115,6 +120,11 @@ table{
 
     td{
       padding: 0 10px;
+      text-align: center;
+
+      &:nth-child(1), &:nth-child(2), &:nth-child(3){
+        text-align: left;
+      }
     }
   }
 }

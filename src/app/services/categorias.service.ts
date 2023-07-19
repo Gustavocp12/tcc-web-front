@@ -28,5 +28,9 @@ export class CategoriasService {
     return this.http.get(this.url + '/' + id, this.authService.httpOptions);
   }
 
+  public deleteCategoria(id: number){
+    return this.http.delete(this.url + '/' + id, this.authService.httpOptions);
+  }
+
 
 }

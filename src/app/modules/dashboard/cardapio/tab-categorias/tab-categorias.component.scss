@@ -107,27 +107,27 @@ header{
         }
       }
 
-      .available{
+      .trash{
         display: flex;
         align-items: center;
         gap: 10px;
 
         button{
-          padding: 5px;
-          border: none;
-          border-radius: 5px;
-          background-color: #fff;
-          color: #000;
-          font-weight: bolder;
-          cursor: pointer;
-          display: flex;
-          align-items: center;
-          gap: 10px;
-          font-size: 15px;
+          padding: 0;
 
           &:hover{
-            background-color: #000;
+            background-color: #e74444;
             color: #fff;
+          }
+        }
+
+        i{
+          font-size: 1.1rem;
+          color: #e74444;
+          padding: 5px;
+
+          &:hover{
+            color: #fff !important;
           }
         }
       }
@@ -149,6 +149,11 @@ header{
 
       th{
         padding: 0 10px;
+        text-align: center;
+
+        &:nth-child(1), &:nth-child(2), &:nth-child(3){
+          text-align: left;
+        }
       }
 
       th:nth-child(2){
@@ -166,7 +171,7 @@ header{
 
       tr{
         border-bottom: 1px solid #929292;
-        height: 50px;
+        height: 65px;
         font-weight: bolder;
         color: #5E5E5E;
         text-align: left;
@@ -190,6 +195,16 @@ header{
 
       td{
         padding: 0 10px;
+        text-align: center;
+
+        &:nth-child(1), &:nth-child(2), &:nth-child(3){
+          text-align: left;
+        }
+
+        i{
+          color: #e74444;
+          cursor: pointer;
+        }
       }
     }
   }

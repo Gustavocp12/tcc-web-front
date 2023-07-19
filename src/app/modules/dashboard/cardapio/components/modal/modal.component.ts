@@ -1,7 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {Itens} from "../../../../../core/interfaces/itens";
 import {ItensService} from "../../../../../services/itens.service";
-import {ItemCategoriaService} from "../../../../../services/item-categoria.service";
 
 @Component({
   selector: 'app-modal',
@@ -10,7 +9,7 @@ import {ItemCategoriaService} from "../../../../../services/item-categoria.servi
 })
 export class ModalComponent implements OnInit{
 
-  constructor(private itensService: ItensService, private itemCategoria: ItemCategoriaService) {}
+  constructor(private itensService: ItensService) {}
 
   @Input() idCategoria: number = 0;
   itens: Itens[] = [];
@@ -38,7 +37,6 @@ export class ModalComponent implements OnInit{
   }
 
   addItem(id: number){
-    // this.itemCategoria.postItemCategoria(this.idCategoria, id);
     this.itensService.putItensCategoria(id, this.idCategoria);
     this.refreshPage();
   }
