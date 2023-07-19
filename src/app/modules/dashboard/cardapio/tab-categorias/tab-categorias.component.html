@@ -41,7 +41,7 @@
         <td>{{item.precoPadrao}}</td>
         <td>{{item.precoPromocional}}</td>
         <td>{{item.estoque}}</td>
-        <td><i class="pi pi-times"></i></td>
+        <td><i class="pi pi-times" (click)="putItemCategoryForNull(item.ID)"></i></td>
       </tr>
     </ng-container>
     <ng-template #emptyTemplate>

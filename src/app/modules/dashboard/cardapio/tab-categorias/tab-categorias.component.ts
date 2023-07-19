@@ -70,6 +70,15 @@ export class TabCategoriasComponent implements OnInit {
       });
   }
 
+  putItemCategoryForNull(id: number){
+    this.itensService.putItemCategoriaParaNulo(id).subscribe();
+    this.refreshPage();
+  }
+
+  refreshPage(){
+    window.location.reload();
+  }
+
   getCategorias(){
     this.categoriasService.getCategorias().subscribe(
       (result: any) => {
