@@ -31,6 +31,11 @@ export class TabItensComponent implements OnInit {
     this.visibleEditItem = true;
   }
 
+  removeItem(id: number){
+    this.itensService.deleteItem(id).subscribe();
+    this.refreshPage();
+  }
+
   addItem(){
     this.visibleAddItem = true;
   }
@@ -45,6 +50,10 @@ export class TabItensComponent implements OnInit {
       (error: any) => {
         console.log("Erro ao carregar itens!", error);
       });
+  }
+
+  refreshPage(){
+    window.location.reload();
   }
 
   ngOnInit() {

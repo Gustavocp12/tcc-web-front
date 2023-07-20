@@ -6,7 +6,7 @@
     <form (ngSubmit)="postItem()">
       <section class="infos">
         <div class="img">
-          <img ngSrc="https://via.placeholder.com/350x300" height="300" width="350" alt="">
+          <img [src]="imageUrl" height="300" width="350" alt="">
         </div>
         <div class="info">
           <h1>Foto do item</h1>
@@ -15,7 +15,7 @@
           <div class="options">
             <label for="image">Escolher <i class="pi pi-upload"></i></label>
             <input type="file" id="image" (change)="onFileSelected($event)">
-            <button>Remover <i class="pi pi-trash"></i></button>
+            <button type="button" (click)="removeImage()">Remover <i class="pi pi-trash"></i></button>
           </div>
         </div>
       </section>

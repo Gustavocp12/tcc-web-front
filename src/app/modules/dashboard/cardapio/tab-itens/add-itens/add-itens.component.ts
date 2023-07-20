@@ -11,6 +11,7 @@ export class AddItensComponent {
 
   constructor(private itensService: ItensService) { }
 
+  imageUrl: string = 'https://via.placeholder.com/350x300';
   visibleTabItens = false;
   itens = {} as Itens;
 
@@ -20,6 +21,19 @@ export class AddItensComponent {
 
   onFileSelected(event: any){
     this.itens.foto = event.target.files[0];
+    if (this.itens.foto) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      }
+      reader.readAsDataURL(this.itens.foto);
+    }
+  }
+
+  removeImage(){
+    this.imageUrl = 'https://via.placeholder.com/350x300';
+    const fileInput = document.getElementById('image') as HTMLInputElement;
+    fileInput.value = '';
   }
 
   postItem(){
@@ -32,6 +46,12 @@ export class AddItensComponent {
     formData.append('estoque', this.itens.estoque.toString());
 
     this.itensService.postItens(formData).subscribe();
+
+    this.refreshPage();
+  }
+
+  refreshPage(){
+    window.location.reload();
   }
 
 }

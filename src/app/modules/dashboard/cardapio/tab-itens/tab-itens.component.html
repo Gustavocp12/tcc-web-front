@@ -3,9 +3,6 @@
     <div class="search">
       <input type="text" placeholder="Pesquisar">
       <i class="pi pi-search"></i>
-      <select>
-        <option disabled selected>Categorias</option>
-      </select>
     </div>
     <div class="addItem">
       <button class="btn btn-primary" (click)="addItem()">Adicionar Item</button>
@@ -30,7 +27,7 @@
           <td>{{item.estoque}}</td>
           <td>
             <i class="pi pi-pencil" (click)="editItem(item.ID)"></i>
-            <i class="pi pi-trash"></i>
+            <i class="pi pi-trash" (click)="removeItem(item.ID)"></i>
           </td>
         </tr>
       </ng-container>

@@ -6,12 +6,12 @@
   <form (ngSubmit)="postCardapio()" enctype="multipart/form-data">
     <div class="photo">
       <div class="preview">
-        <img ngSrc="https://via.placeholder.com/800x200" height="200" width="800" alt="">
+        <img [src]="imageUrl" height="200" width="800" alt="">
       </div>
       <div class="options">
         <label for="image">Editar foto de capa <i class="pi pi-upload"></i></label>
         <input type="file" id="image" (change)="onFileSelected($event)">
-        <button type="button">Remover <i class="pi pi-trash"></i></button>
+        <button type="button" (click)="removeImage()">Remover <i class="pi pi-trash"></i></button>
       </div>
     </div>
 

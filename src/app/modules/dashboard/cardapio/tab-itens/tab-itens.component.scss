@@ -16,21 +16,11 @@
       font-weight: bolder;
     }
 
-    select{
-      width: 200px;
-      padding: 10px;
-      border: 1px solid #929292;
-      border-radius: 5px;
-      margin-left: 10px;
-      font-weight: bolder;
-      cursor: pointer;
-    }
-
     i{
       font-size: 1.2rem;
       color: #929292;
       position: absolute;
-      right: 220px;
+      right: 10px;
     }
   }
 
@@ -90,10 +80,11 @@ table{
 
   tbody{
     height: 60px;
+    position: relative;
 
     tr{
       border-bottom: 1px solid #929292;
-      height: 50px;
+      height: 65px;
       font-weight: bolder;
       color: #5E5E5E;
       text-align: left;
@@ -104,7 +95,8 @@ table{
 
       .empty{
         position: absolute;
-        left: 45%;
+        left: 40%;
+        top: 5px;
         text-align: center;
         font-weight: bolder;
 

@@ -15,6 +15,7 @@ export class EditItensComponent implements OnInit{
   visibleTabItens = false;
   itens = {} as Itens;
   nameFile = '';
+  imageUrl: string = 'https://via.placeholder.com/350x300';
 
   returnTabItens(){
     this.visibleTabItens = true;
@@ -22,6 +23,19 @@ export class EditItensComponent implements OnInit{
 
   onFileSelected(event: any){
     this.itens.foto = event.target.files[0];
+    if (this.itens.foto) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      }
+      reader.readAsDataURL(this.itens.foto);
+    }
+  }
+
+  removeImage(){
+    this.imageUrl = 'https://via.placeholder.com/350x300';
+    const fileInput = document.getElementById('image') as HTMLInputElement;
+    fileInput.value = '';
   }
 
   getItem(){
@@ -29,6 +43,7 @@ export class EditItensComponent implements OnInit{
       (result: any) => {
         this.itens = result;
         this.nameFile = this.itens.foto.toString();
+        this.imageUrl = `./assets/photoItens/${this.nameFile}`;
       }
     );
   }

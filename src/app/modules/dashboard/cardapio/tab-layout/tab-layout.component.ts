@@ -9,6 +9,7 @@ import {Cardapio, optionsSelect} from "../../../../core/interfaces/cardapio";
 })
 export class TabLayoutComponent {
 
+  imageUrl: string = 'https://via.placeholder.com/800x200';
   Cardapio = {} as Cardapio;
   OptionsSelect: optionsSelect[] = [
     {value: '#083EC4', viewValue: 'Azul'},
@@ -20,6 +21,19 @@ export class TabLayoutComponent {
 
   onFileSelected(event: any){
     this.Cardapio.banner = event.target.files[0];
+    if (this.Cardapio.banner) {
+      const reader = new FileReader();
+      reader.onload = (e: any) => {
+        this.imageUrl = e.target.result;
+      }
+      reader.readAsDataURL(this.Cardapio.banner);
+    }
+  }
+
+  removeImage(){
+    this.imageUrl = 'https://via.placeholder.com/800x200';
+    const fileInput = document.getElementById('image') as HTMLInputElement;
+    fileInput.value = '';
   }
 
   postCardapio(){
