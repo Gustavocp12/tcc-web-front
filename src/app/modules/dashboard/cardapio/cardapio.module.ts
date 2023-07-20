@@ -11,6 +11,7 @@ import { ModalComponent } from './components/modal/modal.component';
 import { ConfirmModalComponent } from './components/confirm-modal/confirm-modal.component';
 import { DataModalComponent } from './components/data-modal/data-modal.component';
 import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-delete.component';
+import { EditItensComponent } from './tab-itens/edit-itens/edit-itens.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { ConfirmDeleteComponent } from './components/confirm-delete/confirm-dele
     ConfirmModalComponent,
     DataModalComponent,
     ConfirmDeleteComponent,
+    EditItensComponent,
   ],
   exports: [
     TabLayoutComponent,

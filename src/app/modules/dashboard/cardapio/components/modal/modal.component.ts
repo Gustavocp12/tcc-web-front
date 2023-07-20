@@ -37,7 +37,7 @@ export class ModalComponent implements OnInit{
   }
 
   addItem(id: number){
-    this.itensService.putItensCategoria(id, this.idCategoria);
+    this.itensService.putItensCategoria(id, this.idCategoria).subscribe();
     this.refreshPage();
   }
 

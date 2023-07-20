@@ -6,4 +6,5 @@ export interface Itens {
   precoPromocional: number;
   descricao: string;
   estoque: number;
+  ID_categoria: number | null;
 }

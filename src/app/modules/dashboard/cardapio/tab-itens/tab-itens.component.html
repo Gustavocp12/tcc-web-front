@@ -1,4 +1,4 @@
-<ng-container *ngIf="!visibleAddItem">
+<ng-container *ngIf="!visibleAddItem && !visibleEditItem">
   <section class="container">
     <div class="search">
       <input type="text" placeholder="Pesquisar">
@@ -20,22 +20,34 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let item of itens">
-        <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
-        <td>{{item.nome}}</td>
-        <td>{{item.descricao}}</td>
-        <td>{{item.precoPadrao}}</td>
-        <td>{{item.precoPromocional}}</td>
-        <td>{{item.estoque}}</td>
-      </tr>
-<!--      tem que arrumar esse aviso de tabela vazia-->
-<!--      <div class="empty">-->
-<!--        <h1>Vazia</h1>-->
-<!--        <p>Adicione um item clicando no botão "+Item"</p>-->
-<!--      </div>-->
+      <ng-container *ngIf="itens.length > 0; else emptyTemplate">
+        <tr *ngFor="let item of itens">
+          <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+          <td>{{item.nome}}</td>
+          <td>{{item.descricao}}</td>
+          <td>{{item.precoPadrao}}</td>
+          <td>{{item.precoPromocional}}</td>
+          <td>{{item.estoque}}</td>
+          <td>
+            <i class="pi pi-pencil" (click)="editItem(item.ID)"></i>
+            <i class="pi pi-trash"></i>
+          </td>
+        </tr>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <tr>
+          <td colspan="6">
+            <div class="empty">
+              <h1>Vazia</h1>
+              <p>Adicione um item clicando no botão "Adicionar Item"</p>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
       </tbody>
     </table>
   </section>
 </ng-container>
 
+<app-edit-itens *ngIf="visibleEditItem" [id]="id"></app-edit-itens>
 <app-add-itens *ngIf="visibleAddItem"></app-add-itens>

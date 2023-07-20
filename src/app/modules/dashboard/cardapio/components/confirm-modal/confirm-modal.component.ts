@@ -12,7 +12,7 @@ export class ConfirmModalComponent {
 
   addCategory(){
     const nome: string = 'Nova categoria';
-    this.categoriasService.postCategoria(nome);
+    this.categoriasService.postCategoria(nome).subscribe();
     this.refreshPage();
   }
 

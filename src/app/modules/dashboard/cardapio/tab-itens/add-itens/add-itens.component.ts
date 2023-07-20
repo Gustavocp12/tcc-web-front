@@ -31,7 +31,7 @@ export class AddItensComponent {
     formData.append('descricao', this.itens.descricao);
     formData.append('estoque', this.itens.estoque.toString());
 
-    this.itensService.postItens(formData);
+    this.itensService.postItens(formData).subscribe();
   }
 
 }

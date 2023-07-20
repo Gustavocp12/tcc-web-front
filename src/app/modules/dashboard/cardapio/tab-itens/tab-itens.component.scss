@@ -125,6 +125,19 @@ table{
       &:nth-child(1), &:nth-child(2), &:nth-child(3){
         text-align: left;
       }
+
+      i{
+        font-size: 1.1rem;
+        color: #929292;
+        cursor: pointer;
+        margin-left: 5px;
+        margin-right: 5px;
+
+        &:hover{
+          color: #0F0F0F;
+        }
+      }
+
     }
   }
 }

@@ -10,14 +10,8 @@ export class CategoriasService {
 
   url: string = 'http://localhost:3000/categorias';
 
-  postCategoria(nome: string){
-    this.http.post(this.url, { nome: nome }, this.authService.httpOptions).subscribe(
-      (result: any) => {
-        console.log("Categoria criada com sucesso!");
-      },
-      (error: any) => {
-        console.log("Erro ao criar categoria!", error);
-      });
+  public postCategoria(nome: string){
+    return this.http.post(this.url, { nome: nome }, this.authService.httpOptions);
   }
 
   public getCategorias(){

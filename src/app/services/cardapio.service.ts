@@ -10,26 +10,12 @@ export class CardapioService {
 
   url: string = 'http://localhost:3000/cardapio';
 
-  postCardapio(formData: FormData){
-    this.http.post(this.url, formData, this.authService.httpOptionsMultipart).subscribe(
-      (result: any) => {
-        console.log("Cardápio postado com sucesso!");
-      },
-      (error: any) => {
-        console.log("Erro ao postar cardápio!", error);
-      }
-      );
+  public postCardapio(formData: FormData){
+    return this.http.post(this.url, formData, this.authService.httpOptionsMultipart);
   }
 
-  getCardapio(){
-    this.http.get(this.url, this.authService.httpOptions).subscribe(
-      (result: any) => {
-        console.log("Cardápio carregado com sucesso!");
-      },
-      (error: any) => {
-        console.log("Erro ao carregar cardápio!", error);
-      }
-      );
+  public getCardapio(){
+    return this.http.get(this.url, this.authService.httpOptions);
   }
 
 }

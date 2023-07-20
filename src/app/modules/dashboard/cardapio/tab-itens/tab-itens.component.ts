@@ -11,8 +11,10 @@ export class TabItensComponent implements OnInit {
 
   constructor(private itensService: ItensService) { }
 
+  visibleEditItem = false;
   visibleAddItem = false;
   itens: Itens[] = [];
+  id = 0;
 
   tableOption = [
     { title: 'Foto' },
@@ -20,8 +22,14 @@ export class TabItensComponent implements OnInit {
     { title: 'Descrição' },
     { title: 'Preço' },
     { title: 'Preço Promocional' },
-    { title: 'Estoque' }
+    { title: 'Estoque' },
+    { title: 'Ações' }
   ];
+
+  editItem(id: number){
+    this.id = id;
+    this.visibleEditItem = true;
+  }
 
   addItem(){
     this.visibleAddItem = true;

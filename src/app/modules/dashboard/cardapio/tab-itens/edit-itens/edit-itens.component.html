@@ -1,0 +1,62 @@
+<main class="container" *ngIf="!visibleTabItens">
+  <div class="back" (click)="returnTabItens()">
+    <i class="pi pi-arrow-left"></i>
+  </div>
+  <section class="forms">
+    <form (ngSubmit)="editItem()">
+      <section class="infos">
+        <div class="img">
+          <img src="./assets/photoItens/{{this.itens.foto}}" height="300" width="350" alt="">
+        </div>
+        <div class="info">
+          <h1>Foto do item</h1>
+          <p>A foto deve estar nos formatos JPG, PNG ou WEBP, com tamanho máximo de 10MB.
+            Além disso, o tamanho máximo em pixels para largura é de 350 e para altura é de 300.</p>
+          <div class="options">
+            <label for="image">Escolher <i class="pi pi-upload"></i></label>
+            <input type="file" id="image" name="files" (change)="onFileSelected($event)">
+            <button>Remover <i class="pi pi-trash"></i></button>
+          </div>
+        </div>
+      </section>
+      <div class="name">
+        <label>Nome</label>
+        <input type="text" name="nome" [(ngModel)]="this.itens.nome">
+      </div>
+      <div class="description">
+        <label>Descrição</label>
+        <textarea [(ngModel)]="this.itens.descricao" name="textarea"></textarea>
+      </div>
+      <div class="price">
+        <label>Preço</label>
+        <input type="text" name="preco" [(ngModel)]="this.itens.precoPadrao">
+      </div>
+      <div class="promotion">
+        <label>Preço promocional</label>
+        <input type="text" name="precoPromo" [(ngModel)]="this.itens.precoPromocional">
+      </div>
+      <div class="estoqueQuestion">
+        <label>Deseja controlar o estoque desse item?</label>
+        <div class="options">
+          <div class="option">
+            <input type="radio" name="estoque" id="sim">
+            <label for="sim">Sim</label>
+          </div>
+          <div class="option">
+            <input type="radio" name="estoque" id="nao">
+            <label for="nao">Não</label>
+          </div>
+        </div>
+      </div>
+      <div class="estoque">
+        <label>Estoque</label>
+        <input type="number" name="estoque" [(ngModel)]="this.itens.estoque">
+      </div>
+      <div class="btn">
+        <button type="submit">Salvar</button>
+      </div>
+    </form>
+  </section>
+</main>
+
+<app-tab-itens *ngIf="visibleTabItens"></app-tab-itens>

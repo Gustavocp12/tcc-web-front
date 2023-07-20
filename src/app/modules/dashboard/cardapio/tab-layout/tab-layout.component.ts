@@ -27,7 +27,7 @@ export class TabLayoutComponent {
     formData.append('files', this.Cardapio.banner);
     formData.append('corTema', this.Cardapio.corTema);
     formData.append('corNav', this.Cardapio.corNav);
-    this.cardapioService.postCardapio(formData);
+    this.cardapioService.postCardapio(formData).subscribe();
   }
 
 }
