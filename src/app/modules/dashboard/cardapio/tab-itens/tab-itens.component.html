@@ -1,7 +1,7 @@
 <ng-container *ngIf="!visibleAddItem && !visibleEditItem">
   <section class="container">
     <div class="search">
-      <input type="text" placeholder="Pesquisar">
+      <input type="text" [(ngModel)]="searchItem" placeholder="Pesquisar">
       <i class="pi pi-search"></i>
     </div>
     <div class="addItem">
@@ -18,18 +18,20 @@
       </thead>
       <tbody>
       <ng-container *ngIf="itens.length > 0; else emptyTemplate">
-        <tr *ngFor="let item of itens">
-          <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
-          <td>{{item.nome}}</td>
-          <td>{{item.descricao}}</td>
-          <td>{{item.precoPadrao}}</td>
-          <td>{{item.precoPromocional}}</td>
-          <td>{{item.estoque}}</td>
-          <td>
-            <i class="pi pi-pencil" (click)="editItem(item.ID)"></i>
-            <i class="pi pi-trash" (click)="removeItem(item.ID)"></i>
-          </td>
-        </tr>
+        <ng-container *ngFor="let item of itens">
+          <tr *ngIf="item.nome.toLowerCase().includes(searchItem.toLowerCase())">
+            <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+            <td>{{item.nome}}</td>
+            <td>{{item.descricao}}</td>
+            <td>{{item.precoPadrao}}</td>
+            <td>{{item.precoPromocional}}</td>
+            <td>{{item.estoque}}</td>
+            <td>
+              <i class="pi pi-pencil" (click)="editItem(item.ID)"></i>
+              <i class="pi pi-trash" (click)="removeItem(item.ID)"></i>
+            </td>
+          </tr>
+        </ng-container>
       </ng-container>
       <ng-template #emptyTemplate>
         <tr>

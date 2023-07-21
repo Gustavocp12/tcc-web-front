@@ -23,6 +23,7 @@ export class TabCategoriasComponent implements OnInit {
   idCategoria = 0;
   itens: Itens[] = [];
   id = 0;
+  search = '';
 
   tableOption = [
     { title: 'Foto' },

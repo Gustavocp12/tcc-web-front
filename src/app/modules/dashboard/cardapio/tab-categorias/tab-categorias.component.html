@@ -5,58 +5,59 @@
 
 <div class="containerSearch">
   <div class="search">
-    <input type="text" name="search" placeholder="Pesquisar">
+    <input type="text" name="search" [(ngModel)]="search" placeholder="Pesquisar">
     <i class="pi pi-search"></i>
   </div>
   <div>
     <button type="button" (click)="confirmModal()">Adicionar Categoria</button>
   </div>
 </div>
-
-<section class="container" *ngFor="let categoria of categorias; let i = index;">
-  <div class="title">
-    <div class="text">
-      <h2>{{this.categoria.nome}}</h2>
-      <p (click)="dataModal(categoria.ID)">editar nome</p>
-    </div>
-    <div class="options">
-      <button type="button" (click)="modalItens(categoria.ID)"><i class="pi pi-plus"></i> Item</button>
-      <div class="trash">
-        <button type="button" (click)="confirmDelete(categoria.ID)"><i class="pi pi-trash"></i></button>
+<ng-container *ngFor="let categoria of categorias; let i = index;">
+  <section class="container" *ngIf="categoria.nome.toLowerCase().includes(search.toLowerCase())">
+    <div class="title">
+      <div class="text">
+        <h2>{{this.categoria.nome}}</h2>
+        <p (click)="dataModal(categoria.ID)">editar nome</p>
+      </div>
+      <div class="options">
+        <button type="button" (click)="modalItens(categoria.ID)"><i class="pi pi-plus"></i> Item</button>
+        <div class="trash">
+          <button type="button" (click)="confirmDelete(categoria.ID)"><i class="pi pi-trash"></i></button>
+        </div>
       </div>
     </div>
-  </div>
-  <table>
-    <thead>
-    <tr>
-      <th *ngFor="let option of tableOption">{{option.title}}</th>
-    </tr>
-    </thead>
-    <tbody>
-    <ng-container *ngIf="itensCategoria[i]?.length; else emptyTemplate">
-      <tr *ngFor="let item of itensCategoria[i]">
-        <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
-        <td>{{item.nome}}</td>
-        <td>{{item.descricao}}</td>
-        <td>{{item.precoPadrao}}</td>
-        <td>{{item.precoPromocional}}</td>
-        <td>{{item.estoque}}</td>
-        <td><i class="pi pi-times" (click)="putItemCategoryForNull(item.ID)"></i></td>
-      </tr>
-    </ng-container>
-    <ng-template #emptyTemplate>
+    <table>
+      <thead>
       <tr>
-        <td colspan="6">
-          <div class="empty">
-            <h1>Vazia</h1>
-            <p>Adicione um item clicando no botão "+Item"</p>
-          </div>
-        </td>
+        <th *ngFor="let option of tableOption">{{option.title}}</th>
       </tr>
-    </ng-template>
-    </tbody>
-  </table>
-</section>
+      </thead>
+      <tbody>
+      <ng-container *ngIf="itensCategoria[i]?.length; else emptyTemplate">
+        <tr *ngFor="let item of itensCategoria[i]">
+          <td><img src="./assets/photoItens/{{item.foto}}" height="50" width="50"></td>
+          <td>{{item.nome}}</td>
+          <td>{{item.descricao}}</td>
+          <td>{{item.precoPadrao}}</td>
+          <td>{{item.precoPromocional}}</td>
+          <td>{{item.estoque}}</td>
+          <td><i class="pi pi-times" (click)="putItemCategoryForNull(item.ID)"></i></td>
+        </tr>
+      </ng-container>
+      <ng-template #emptyTemplate>
+        <tr>
+          <td colspan="6">
+            <div class="empty">
+              <h1>Vazia</h1>
+              <p>Adicione um item clicando no botão "+Item"</p>
+            </div>
+          </td>
+        </tr>
+      </ng-template>
+      </tbody>
+    </table>
+  </section>
+</ng-container>
 
 <app-confirm-delete *ngIf="cdModal" [categoriaId]="idCategoria"></app-confirm-delete>
 <app-confirm-modal *ngIf="cModal"></app-confirm-modal>

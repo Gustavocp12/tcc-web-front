@@ -15,6 +15,7 @@ export class TabItensComponent implements OnInit {
   visibleAddItem = false;
   itens: Itens[] = [];
   id = 0;
+  searchItem = '';
 
   tableOption = [
     { title: 'Foto' },
